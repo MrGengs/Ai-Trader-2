@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>AI Trading Signals - Stockity.id</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>₿ AI Crypto Trading Signals</h1>
+            <p>Sistem AI untuk analisis sinyal Crypto IDX Bullish/Bearish per menit</p>
+            <p>Compatible dengan Stockity.id - Crypto IDX Trading <span class="status-online"></span></p>
+        </div>
+
+        <div class="main-grid">
+            <div class="left-panel">
+                <div class="signal-panel">
+                    <div class="current-signal">
+                        <div id="signalIndicator" class="signal-indicator signal-neutral">
+                            📊
+                        </div>
+                        <div id="signalText" class="signal-text">MENUNGGU SINYAL</div>
+                        <div id="signalConfidence" class="signal-confidence">Confidence: 0%</div>
+                        <div style="margin-top: 10px; opacity: 0.8;">
+                            <span id="lastUpdate">Terakhir update: -</span>
+                        </div>
+                    </div>
+
+                    <div class="controls">
+                        <button id="startBtn" class="btn btn-primary">🚀 Mulai Trading</button>
+                        <button id="stopBtn" class="btn btn-danger" disabled>⏹️ Stop</button>
+                        <button id="resetBtn" class="btn btn-secondary">🔄 Reset</button>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div id="totalSignals" class="stat-value">0</div>
+                            <div class="stat-label">Total Sinyal</div>
+                        </div>
+                        <div class="stat-card">
+                            <div id="bullishCount" class="stat-value">0</div>
+                            <div class="stat-label">Bullish</div>
+                        </div>
+                        <div class="stat-card">
+                            <div id="bearishCount" class="stat-value">0</div>
+                            <div class="stat-label">Bearish</div>
+                        </div>
+                        <div class="stat-card">
+                            <div id="accuracy" class="stat-value">0%</div>
+                            <div class="stat-label">Akurasi</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <h3 style="margin-bottom: 15px;">📈 Price Movement & Signals</h3>
+                    <canvas id="priceChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <div class="indicators-panel" style="margin-bottom: 20px;">
+                    <h3 style="margin-bottom: 15px;">₿ Crypto Indicators</h3>
+                    <div class="indicator">
+                        <span>Current Price:</span>
+                        <span id="currentPrice">$0.00</span>
+                    </div>
+                    <div class="indicator">
+                        <span>24h Change:</span>
+                        <span id="priceChange">0.00%</span>
+                    </div>
+                    <div class="indicator">
+                        <span>RSI (14):</span>
+                        <span id="rsiValue">50.0</span>
+                    </div>
+                    <div class="indicator">
+                        <span>MACD:</span>
+                        <span id="macdValue">0.00</span>
+                    </div>
+                    <div class="indicator">
+                        <span>EMA (20):</span>
+                        <span id="smaValue">$0.00</span>
+                    </div>
+                    <div class="indicator">
+                        <span>Bollinger:</span>
+                        <span id="bollingerValue">Neutral</span>
+                    </div>
+                    <div class="indicator">
+                        <span>Volume:</span>
+                        <span id="volumeValue">Normal</span>
+                    </div>
+                    <div class="indicator">
+                        <span>Volatility:</span>
+                        <span id="volatilityValue">Medium</span>
+                    </div>
+                    <div class="indicator">
+                        <span>Market Sentiment:</span>
+                        <span id="sentimentValue">Neutral</span>
+                    </div>
+                </div>
+
+                <div class="signals-log">
+                    <h3 style="margin-bottom: 15px;">📝 Signal History</h3>
+                    <div id="signalHistory">
+                        <div class="log-entry">
+                            <span>Sistem ready...</span>
+                            <span style="opacity: 0.7;">--:--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <style>
+        /* Touch-friendly cursor */
+        body {
+            cursor: default;
+            touch-action: manipulation;
+        }
+
+        /* Prevent text selection on touch */
+        * {
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        /* Better touch targets */
+        button, .btn {
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+</body>
+</html>
